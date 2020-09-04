@@ -1,8 +1,30 @@
 button {
   width: 6em;
-  border: 1px solid orange;
+  border: 1px solid gray;
   border-radius: 1em;
   padding: 0.5em 0.8em;
-  background-color: #fff;
+  background: rgb(189, 230, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(189, 230, 224, 1) 0%,
+    rgba(176, 198, 194, 1) 35%,
+    rgba(176, 198, 194, 1) 100%
+  );
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.5s;
+}
+
+button:hover {
+  background: rgb(223, 237, 238);
+  background: linear-gradient(
+    90deg,
+    rgba(223, 237, 238, 1) 0%,
+    rgba(235, 235, 235, 1) 35%,
+    rgba(210, 218, 219, 1) 100%
+  );
+  color: gray;
+  border: 1px solid white;
 }
