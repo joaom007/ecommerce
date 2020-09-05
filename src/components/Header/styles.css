@@ -1,6 +1,0 @@
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    min-height: 40vw;
-  }
-}

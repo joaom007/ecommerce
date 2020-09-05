@@ -1,9 +1,7 @@
 import React from "react";
-import Button from "../Button";
-import Logo from "../Logo";
-import Nav from "../Nav";
-import Input from "../Input";
-import "./styles.css";
+import { Logo } from "./styles";
+import { Input, Button } from "components";
+import { Nav } from "./styles";
 
 const Header = () => (
   <header>

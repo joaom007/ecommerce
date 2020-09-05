@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-const Nav = styled.nav`
+export const Logo = styled.h1`
+  color: white;
+  &::first-letter {
+    font-size: 2em;
+    color: gray;
+    text-shadow: 1px 1px orange;
+  }
+`;
+
+export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   background: rgb(2, 0, 36);
@@ -14,5 +23,3 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5em 1em;
 `;
-
-export default Nav;
