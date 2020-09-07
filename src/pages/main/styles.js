@@ -7,6 +7,13 @@ export const Container = styled.main`
   grid-gap: 2em;
   padding: 2em 2em;
   margin: 0 5vw;
+
+  @media (max-width: 1150px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Product = styled.div`
