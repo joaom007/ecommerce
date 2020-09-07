@@ -255,6 +255,10 @@ const Main = () => (
   <>
     <Header />
     <Container>{products.map(handleProducts)}</Container>
+    <Flex className="before-after">
+      <Button>Anterior</Button>
+      <Button>Próxima</Button>
+    </Flex>
     <Footer />
   </>
 );

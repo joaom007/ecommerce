@@ -44,6 +44,13 @@ export const Figcaption = styled.figcaption`
 export const Flex = styled.div`
   display: flex;
   margin: 0.5em auto;
+
+  &.before-after {
+    justify-content: center;
+    margin: 0 5vw;
+    border: 1px solid gray;
+    padding: 0.5em 0;
+  }
 `;
 
 export const Price = styled.h3``;
