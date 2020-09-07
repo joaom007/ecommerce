@@ -12,6 +12,10 @@ export const Container = styled.main`
 export const Product = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 0 0.5em;
+  border: 3px solid gray;
+  border-radius: 0 2em 2em;
 `;
 
 export const Img = styled.img`
@@ -32,7 +36,7 @@ export const Figcaption = styled.figcaption`
 
 export const Flex = styled.div`
   display: flex;
-  justify-content: space-around;
+  margin: 0.5em auto;
 `;
 
 export const Price = styled.h3``;
