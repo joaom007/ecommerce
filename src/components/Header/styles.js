@@ -22,4 +22,11 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0.5em 1em;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    div {
+      margin-top: 0.5em;
+    }
+  }
 `;

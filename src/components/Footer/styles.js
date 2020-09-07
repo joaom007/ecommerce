@@ -15,8 +15,6 @@ export const Div = styled.div`
 `;
 
 export const Title = styled.h4`
-  margin: 0;
-  color: gray;
   font-weight: bold;
   text-shadow: 1px 1px 0;
 `;
@@ -41,6 +39,12 @@ export const Nav = styled.nav`
   align-items: flex-start;
   justify-content: space-between;
   padding: 0.5em 1em;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    div {
+      margin-top: 0.5em;
+    }
+  }
 `;
 
 export const Img = styled.img`
