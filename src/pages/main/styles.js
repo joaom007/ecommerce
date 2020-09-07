@@ -29,3 +29,10 @@ export const Figcaption = styled.figcaption`
   border-bottom-right-radius: 2em;
   border-bottom-left-radius: 2em;
 `;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const Price = styled.h3``;

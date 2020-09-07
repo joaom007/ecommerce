@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Footer, Button } from "../../components/index";
-import { Container, Product, Img, Figcaption } from "./styles";
+import { Container, Product, Img, Figcaption, Flex, Price } from "./styles";
 import exemple from "../../assets/imagem-ficticia.jpg";
 
 const products = [
@@ -244,7 +244,10 @@ const handleProducts = ({ idProduct, color, description, unitaryValue }) => (
   <Product>
     <Img src={exemple} />
     <Figcaption>{color}</Figcaption>
-    <Button>Comprar</Button>
+    <Flex>
+      <Price>R${unitaryValue}</Price>
+      <Button>Comprar</Button>
+    </Flex>
   </Product>
 );
 
