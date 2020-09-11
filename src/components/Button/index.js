@@ -30,9 +30,9 @@ const Button = styled.button`
     color: gray;
     border: 1px solid white;
   }
-
-  ${(props) =>
-    props.primary &&
+  margin: ${({ margin }) => margin};
+  ${({ primary }) =>
+    primary &&
     css`
       background: rgb(224, 158, 87);
       background: linear-gradient(
@@ -53,12 +53,12 @@ const Button = styled.button`
         );
       }
     `}
-  ${(props) =>
-    props.cart &&
+  ${({ cart }) =>
+    cart &&
     css`
       border-radius: 50%;
       width: auto;
-    `}
+    `};
 `;
 
 export default Button;
