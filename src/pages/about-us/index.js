@@ -45,7 +45,7 @@ const articleItens = [
   {
     title: "O que fazemos?",
     paragraph:
-      "dos mais refinados estilos, adaptando qualidade e agilidade aos prazos de entrega. Trabalhamos com os mais variados tipos de Mármores e Granitos. Devido à facilidade em adquirirmos pedras brutas para lapidação, tanto em padrões nacionais quanto importados, atendemos a qualquer tipo de demanda, concluindo grandes obras ou até mesmo criando peças decorativas sob medidas, padrões e encomendas especiais. Trabalhamos com pias, soleiras, lavatórios, pisos, escadas, mesas, balcões, etc... com os mais variados tipos de acabamentos.",
+      "Trabalhamos com designs modernos que unem praticidade à beleza. Executamos projetos e ideais visando atender às necessidades e desejos dos mais refinados estilos, adaptando qualidade e agilidade aos prazos de entrega. Trabalhamos com os mais variados tipos de Mármores e Granitos. Devido à facilidade em adquirirmos pedras brutas para lapidação, tanto em padrões nacionais quanto importados, atendemos a qualquer tipo de demanda, concluindo grandes obras ou até mesmo criando peças decorativas sob medidas, padrões e encomendas especiais. Trabalhamos com pias, soleiras, lavatórios, pisos, escadas, mesas, balcões, etc... com os mais variados tipos de acabamentos.",
   },
   {
     title: "Missão",
