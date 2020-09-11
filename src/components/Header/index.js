@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "./styles";
-import { Input, Button } from "components";
+import { Input, Button, DropDown } from "components";
 import { Nav } from "./styles";
 
 const Header = () => (
@@ -13,10 +13,10 @@ const Header = () => (
         <Input placeholder="pesquisar por produto..."></Input>
         <Button>Pesquisar</Button>
       </div>
-      <div>
+      <div style={{ display: "flex" }}>
         <Button cart>C</Button>
         <Button primary>Login</Button>
-        <Button>Registrar</Button>
+        <DropDown></DropDown>
       </div>
     </Nav>
   </header>
