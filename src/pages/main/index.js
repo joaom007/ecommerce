@@ -241,7 +241,7 @@ const products = [
 ];
 
 const handleProducts = ({ idProduct, color, description, unitaryValue }) => (
-  <Product>
+  <Product key={idProduct}>
     <Img src={exemple} />
     <Figcaption>{color}</Figcaption>
     <Flex>
