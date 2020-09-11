@@ -32,7 +32,12 @@ export const DivBackDrop = styled.div`
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+
+  ${({ none }) =>
+    none &&
+    css`
+      display: none;
+    `}
 `;
 
 export const GridContainer = styled.div`
@@ -43,7 +48,6 @@ export const GridContainer = styled.div`
   left: 20em;
   right: 20em;
   padding: 0.7em;
-  z-index: 2;
   background-color: #e3f5f7;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -58,6 +62,12 @@ export const GridContainer = styled.div`
     "grid-fifteen grid-fifteen grid-fifteen"
     ". center-button .";
   grid-gap: 0.5em;
+
+  ${({ none }) =>
+    none &&
+    css`
+      display: none;
+    `}
 
   .title {
     grid-area: user;
@@ -132,4 +142,15 @@ export const StyledTerms = styled.div`
   display: grid;
   grid-template-columns: 1em 14em;
   align-items: center;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  padding: 0.3em;
+  cursor: pointer;
+  padding: 0 0.5em;
+  font-weight: bold;
+  color: gray;
 `;
