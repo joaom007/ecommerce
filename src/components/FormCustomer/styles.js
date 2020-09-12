@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -16,14 +16,14 @@ export const FlexContainer = styled.div`
     props.row &&
     css`
       flex-direction: row;
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         margin: 0;
         padding: 0;
       }
     `}
-`;
+`
 
-export const Title = styled.h2``;
+export const Title = styled.h2``
 
 export const DivBackDrop = styled.div`
   position: fixed;
@@ -38,29 +38,29 @@ export const DivBackDrop = styled.div`
     css`
       display: none;
     `}
-`;
+`
 
 export const GridContainer = styled.div`
   display: grid;
   position: fixed;
-  top: 4em;
-  left: 20em;
-  right: 20em;
+  top: 2em;
+  left: 10em;
+  right: 10em;
   padding: 0.7em;
   border: 2px solid gray;
   background-color: white;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "user user user"
-    "grid-one grid-one grid-one"
-    "grid-two grid-two grid-four"
-    "grid-five grid-six grid-seven"
-    "grid-eight . ."
-    "address address address"
-    "grid-nine grid-ten grid-eleven"
-    "grid-twelve grid-thirteen grid-fourteen"
-    "grid-fifteen grid-fifteen grid-fifteen"
-    ". center-button .";
+    'user user user'
+    'grid-one grid-one grid-one'
+    'grid-two grid-two grid-four'
+    'grid-five grid-six grid-seven'
+    'grid-eight . .'
+    'address address address'
+    'grid-nine grid-ten grid-eleven'
+    'grid-twelve grid-thirteen grid-fourteen'
+    'grid-fifteen grid-fifteen grid-fifteen'
+    '. center-button .';
   grid-gap: 0.5em;
 
   ${({ open }) =>
@@ -135,14 +135,19 @@ export const GridContainer = styled.div`
   .submit {
     grid-area: center-button;
   }
-`;
+
+  @media (max-width: 900px) {
+    left: 0;
+    right: 0;
+  }
+`
 
 export const StyledTerms = styled.div`
   grid-gap: 0.5em;
   display: grid;
   grid-template-columns: 1em 14em;
   align-items: center;
-`;
+`
 
 export const CloseButton = styled.button`
   position: absolute;
@@ -153,4 +158,4 @@ export const CloseButton = styled.button`
   padding: 0 0.5em;
   font-weight: bold;
   color: gray;
-`;
+`
