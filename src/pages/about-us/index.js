@@ -1,7 +1,6 @@
 import React from 'react'
-import { Footer } from '../../components/index'
+import { Footer, Logo } from '../../components/index'
 import {
-  Logo,
   Nav,
   Main,
   Portfolio,
