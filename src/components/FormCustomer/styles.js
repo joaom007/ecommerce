@@ -33,8 +33,8 @@ export const DivBackDrop = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
 
-  ${({ none }) =>
-    none &&
+  ${({ open }) =>
+    !open &&
     css`
       display: none;
     `}
@@ -43,12 +43,12 @@ export const DivBackDrop = styled.div`
 export const GridContainer = styled.div`
   display: grid;
   position: fixed;
-  border-radius: 0.5em;
-  top: 2em;
+  top: 4em;
   left: 20em;
   right: 20em;
   padding: 0.7em;
-  background-color: #e3f5f7;
+  border: 2px solid gray;
+  background-color: white;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "user user user"
@@ -63,8 +63,8 @@ export const GridContainer = styled.div`
     ". center-button .";
   grid-gap: 0.5em;
 
-  ${({ none }) =>
-    none &&
+  ${({ open }) =>
+    !open &&
     css`
       display: none;
     `}

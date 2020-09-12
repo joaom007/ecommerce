@@ -65,7 +65,7 @@ export const SubMenu = styled.ul`
   > li + li {
     border-top: 1px solid #999;
   }
-  > li > a {
+  > li > button {
     display: block;
     padding: 0.5em 1.5em;
     background: rgb(189, 230, 224);
@@ -80,7 +80,7 @@ export const SubMenu = styled.ul`
     text-decoration: none;
     border-bottom-left-radius: 5em;
   }
-  > li > a:hover {
+  > li > button:hover {
     background: rgb(223, 237, 238);
     background: linear-gradient(
       90deg,
