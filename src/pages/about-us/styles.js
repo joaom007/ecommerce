@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Logo = styled.h1`
   color: white;
@@ -7,7 +7,7 @@ export const Logo = styled.h1`
     color: gray;
     text-shadow: 1px 1px orange;
   }
-`;
+`
 
 export const Nav = styled.nav`
   display: flex;
@@ -22,7 +22,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0.5em 1em;
-`;
+`
 
 export const Main = styled.main`
   background: #e3f5f7;
@@ -30,7 +30,7 @@ export const Main = styled.main`
   flex-direction: column;
   padding: 0 2em;
   margin: 0 5vw;
-`;
+`
 
 export const Portfolio = styled.div`
   padding: 1em 0;
@@ -42,7 +42,7 @@ export const Portfolio = styled.div`
   margin: 0 2em;
   justify-items: center;
   align-items: center;
-`;
+`
 
 export const Figure = styled.figure`
   display: flex;
@@ -52,12 +52,12 @@ export const Figure = styled.figure`
   margin: 0;
   border: 1px solid gray;
   border-radius: 2em;
-`;
+`
 
 export const Img = styled.img`
   flex: 1;
   border-radius: 50%;
-`;
+`
 
 export const Figcaption = styled.figcaption`
   padding: 0.3em 0.8em;
@@ -66,12 +66,12 @@ export const Figcaption = styled.figcaption`
   text-align: right;
   border-bottom-right-radius: 2em;
   border-bottom-left-radius: 2em;
-`;
+`
 
 export const Article = styled.article`
   flex: 1;
   padding: 1em;
-`;
+`
 
 export const Title = styled.h1`
   font-size: 1.5rem;
@@ -82,16 +82,20 @@ export const Title = styled.h1`
     css`
       text-align: center;
     `}
-`;
+`
 
 export const List = styled.ul`
   padding: 0;
-`;
+`
 
 export const Item = styled.li`
   list-style: none;
-`;
+`
 
 export const Paragraph = styled.p`
   margin: 0.5em 0;
-`;
+`
+
+export const Link = styled.a`
+  text-decoration: none;
+`
