@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Logo = styled.h1`
   color: white;
@@ -7,7 +7,7 @@ export const Logo = styled.h1`
     color: gray;
     text-shadow: 1px 1px orange;
   }
-`;
+`
 
 export const Nav = styled.nav`
   display: flex;
@@ -29,4 +29,4 @@ export const Nav = styled.nav`
       margin-top: 0.5em;
     }
   }
-`;
+`
