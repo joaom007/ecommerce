@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 80%;
   max-width: 1000px;
   margin: 1em auto;
   font-size: 0.8rem;
-`;
+`
 
 export const Drop = styled.div`
   display: inline-block;
@@ -19,7 +19,7 @@ export const Drop = styled.div`
   :hover .dropdown-menu {
     display: block;
   }
-`;
+`
 
 export const Label = styled.div`
   padding: 0.5em 2em 0.5em 1.5em;
@@ -38,14 +38,14 @@ export const Label = styled.div`
   border-top-right-radius: 1em;
 
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 1em;
     top: 1em;
     border: 0.4em solid;
     border-color: black transparent transparent;
   }
-`;
+`
 
 export const Menu = styled.div`
   display: none;
@@ -54,7 +54,7 @@ export const Menu = styled.div`
   top: 2.1em;
   min-width: 100%;
   background-color: #eee;
-`;
+`
 
 export const SubMenu = styled.ul`
   padding-left: 0;
@@ -78,7 +78,7 @@ export const SubMenu = styled.ul`
     color: white;
     font-weight: bold;
     text-decoration: none;
-    border-bottom-left-radius: 5em;
+    border: none;
   }
   > li > button:hover {
     background: rgb(223, 237, 238);
@@ -90,4 +90,4 @@ export const SubMenu = styled.ul`
     );
     color: gray;
   }
-`;
+`
