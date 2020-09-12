@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const Button = styled.button`
   width: 6em;
@@ -20,16 +20,19 @@ const Button = styled.button`
   transition: 0.5s;
 
   &:hover {
-    background: rgb(223, 237, 238);
-    background: linear-gradient(
-      90deg,
-      rgba(223, 237, 238, 1) 0%,
-      rgba(235, 235, 235, 1) 35%,
-      rgba(210, 218, 219, 1) 100%
-    );
-    color: gray;
-    border: 1px solid white;
+    :not(:disabled) {
+      background: rgb(223, 237, 238);
+      background: linear-gradient(
+        90deg,
+        rgba(223, 237, 238, 1) 0%,
+        rgba(235, 235, 235, 1) 35%,
+        rgba(210, 218, 219, 1) 100%
+      );
+      color: gray;
+      border: 1px solid white;
+    }
   }
+
   margin: ${({ margin }) => margin};
   ${({ primary }) =>
     primary &&
@@ -59,6 +62,9 @@ const Button = styled.button`
       border-radius: 50%;
       width: auto;
     `};
-`;
+  :disabled {
+    opacity: 0.6;
+  }
+`
 
-export default Button;
+export default Button
