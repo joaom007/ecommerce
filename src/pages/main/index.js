@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Header, Footer, Button } from '../../components/index'
-import { Container, Product, Img, Figcaption, Flex, Price } from './styles'
+import {
+  Container,
+  Product,
+  Img,
+  Figcaption,
+  Flex,
+  Price,
+  ResponsiveDiv,
+} from './styles'
 import exemple from '../../assets/imagem-ficticia.jpg'
 import data from './products'
 
 const handleProducts = ({ idProduct, color, description, unitaryValue }) => (
   <Product key={idProduct}>
-    <Img src={exemple} />
-    <Figcaption>{color}</Figcaption>
+    <ResponsiveDiv>
+      <Img src={exemple} />
+      <Figcaption>{color}</Figcaption>
+    </ResponsiveDiv>
     <Flex>
       <Price>R${unitaryValue}</Price>
       <Button>Comprar</Button>
