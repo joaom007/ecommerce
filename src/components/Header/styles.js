@@ -1,14 +1,5 @@
 import styled from 'styled-components'
 
-export const Logo = styled.h1`
-  color: white;
-  &::first-letter {
-    font-size: 2em;
-    color: gray;
-    text-shadow: 1px 1px orange;
-  }
-`
-
 export const Nav = styled.nav`
   display: flex;
   flex-direction: row;

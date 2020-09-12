@@ -1,6 +1,5 @@
 import React from 'react'
-import { Logo } from './styles'
-import { Input, Button, DropDown } from 'components'
+import { Input, Button, DropDown, Logo } from 'components'
 import { Nav } from './styles'
 
 const Header = () => (
