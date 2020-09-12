@@ -1,9 +1,9 @@
 import React from 'react'
-import { Logo, Div, Link, Title, Nav, Img, Copyright } from './styles.js'
+import { Div, Link, Title, Nav, Img, Copyright } from './styles.js'
 import Facebook from './img/facebook.svg'
 import Instagram from './img/instagram.svg'
 import Twitter from './img/twitter.svg'
-import { Button } from 'components'
+import { Button, Logo } from 'components'
 
 const handleItens = ({ title, itens }, index) => (
   <div style={{ style: Div }} key={index}>
