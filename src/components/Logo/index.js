@@ -3,7 +3,7 @@ import { LogoTitle, Link } from './styles'
 
 const Logo = () => (
   <Link href="/">
-    <LogoTitle>Marmorária</LogoTitle>
+    <LogoTitle>MR</LogoTitle>
   </Link>
 )
 

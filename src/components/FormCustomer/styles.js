@@ -44,10 +44,10 @@ export const GridContainer = styled.div`
   display: grid;
   position: fixed;
   top: 2em;
-  left: 10em;
-  right: 10em;
+  left: 15em;
+  right: 15em;
   padding: 0.7em;
-  border: 2px solid gray;
+  border: 1px solid gray;
   background-color: white;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -62,6 +62,14 @@ export const GridContainer = styled.div`
     'grid-fifteen grid-fifteen grid-fifteen'
     '. center-button .';
   grid-gap: 0.5em;
+
+  input {
+    font-size: 1rem;
+  }
+
+  input:hover {
+    border: 1px solid silver;
+  }
 
   ${({ open }) =>
     !open &&
@@ -151,9 +159,10 @@ export const StyledTerms = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  right: 0.5em;
-  top: 0.5em;
+  right: 1em;
+  top: 1em;
   padding: 0.3em;
+  border: 1px solid gray;
   cursor: pointer;
   padding: 0 0.5em;
   font-weight: bold;

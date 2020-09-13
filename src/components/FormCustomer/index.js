@@ -1,8 +1,8 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Button from "../Button";
-import { validate } from "./validate";
+import React from 'react'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+import Button from '../Button'
+import { validate } from './validate'
 import {
   FlexContainer,
   GridContainer,
@@ -10,32 +10,32 @@ import {
   StyledTerms,
   DivBackDrop,
   CloseButton,
-} from "./styles";
+} from './styles'
 
 const FormCustomer = ({ isOpen, toggle }) => {
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        cpf: "",
-        rg: "",
-        phone: "",
-        birthday: "",
-        password: "",
-        district: "",
-        number: "",
-        street: "",
-        city: "",
-        state: "",
-        zipCode: "",
+        name: '',
+        email: '',
+        cpf: '',
+        rg: '',
+        phone: '',
+        birthday: '',
+        password: '',
+        district: '',
+        number: '',
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
       }}
       validationSchema={Yup.object(validate)}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+          alert(JSON.stringify(values, null, 2))
+          setSubmitting(false)
+        }, 400)
       }}
     >
       <Form>
@@ -126,7 +126,7 @@ const FormCustomer = ({ isOpen, toggle }) => {
         </GridContainer>
       </Form>
     </Formik>
-  );
-};
+  )
+}
 
-export default FormCustomer;
+export default FormCustomer
