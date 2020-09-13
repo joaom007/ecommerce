@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Header, Footer, Button } from '../../components/index'
+import api from '../../services/api'
 import {
   Container,
   Product,
@@ -10,7 +11,7 @@ import {
   ResponsiveDiv,
 } from './styles'
 import exemple from '../../assets/imagem-ficticia.jpg'
-import data from './products'
+//import data from './products'
 
 const handleProducts = ({ idProduct, color, description, unitaryValue }) => (
   <Product key={idProduct}>
@@ -30,7 +31,16 @@ const Main = () => {
     limit: 9,
     start: 0,
   })
+
   const [products, setProducts] = useState([])
+  const [response, setResponse] = useState({
+    data: [],
+  })
+
+  const loadProducts = async () => {
+    const response = await api.get('/product')
+    setResponse({ ...response, data: response.data })
+  }
 
   function nextPage() {
     setPaginaton({ ...pagination, start: pagination.limit + pagination.start })
@@ -42,7 +52,7 @@ const Main = () => {
 
   function handlePagination() {
     const { limit, start } = pagination
-
+    const { data } = response
     const paginatedProducts = data.filter((item, index) => {
       if (index >= start && index < start + limit) {
         return item
@@ -54,7 +64,8 @@ const Main = () => {
 
   useEffect(() => {
     handlePagination()
-  }, [pagination])
+    loadProducts()
+  }, [pagination, response])
 
   return (
     <>
@@ -66,7 +77,7 @@ const Main = () => {
         </Button>
         <Button
           onClick={nextPage}
-          disabled={pagination.start + pagination.limit >= data.length}
+          disabled={pagination.start + pagination.limit >= response.data.length}
         >
           Próxima
         </Button>
