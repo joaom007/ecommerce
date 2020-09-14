@@ -63,7 +63,7 @@ const Button = styled.button`
       width: auto;
     `};
   :disabled {
-    opacity: 0.6;
+    background: gray;
   }
 `
 
