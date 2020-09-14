@@ -70,6 +70,17 @@ const Main = () => {
   return (
     <>
       <Header />
+      <Flex className="before-after">
+        <Button onClick={prevPage} disabled={pagination.start === 0}>
+          Anterior
+        </Button>
+        <Button
+          onClick={nextPage}
+          disabled={pagination.start + pagination.limit >= response.data.length}
+        >
+          Próxima
+        </Button>
+      </Flex>
       <Container>{products.map(handleProducts)}</Container>
       <Flex className="before-after">
         <Button onClick={prevPage} disabled={pagination.start === 0}>
