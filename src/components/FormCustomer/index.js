@@ -31,42 +31,19 @@ let token = generate_token(30)
 
 const FormCustomer = ({ isOpen, toggle }) => {
   const handleOnSubmit = async (values, actions) => {
-    const {
-      email,
-      password,
-      token,
-      nameCustomer,
-      CPF,
-      RG,
-      dateBirth,
-      street,
-      number,
-      district,
-      city,
-      state,
-      zipCode,
-    } = values
-    const formData = new FormData()
     alert(JSON.stringify(values))
-    // const resposta = await api.post(
-    //   '/pessoaFisica',
-    //   JSON.stringify(values, null, 2)
-    // )
-    //'application/x-www-form-urlencoded'
-    //text/plain
-    //multipart/form-data
     const config = {
       headers: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
       },
     }
 
-    const resposta = await api.post(
+    const response = await api.post(
       '/pessoaFisica',
       querystring.stringify(values),
       config
     )
-    console.log(resposta)
+    alert(response.data)
   }
 
   return (
