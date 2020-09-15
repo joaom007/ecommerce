@@ -10,21 +10,28 @@ import {
   Price,
   ResponsiveDiv,
 } from './styles'
-import exemple from '../../assets/imagem-ficticia.jpg'
-//import data from './products'
+import { handleImage } from './handleImage'
 
-const handleProducts = ({ idProduct, color, description, unitaryValue }) => (
-  <Product key={idProduct}>
-    <ResponsiveDiv>
-      <Img src={exemple} />
-      <Figcaption>{color}</Figcaption>
-    </ResponsiveDiv>
-    <Flex>
-      <Price>R${unitaryValue}</Price>
-      <Button>Comprar</Button>
-    </Flex>
-  </Product>
-)
+const handleProducts = ({
+  idProduct,
+  color,
+  description,
+  unitaryValue,
+  imageLink,
+}) => {
+  return (
+    <Product key={idProduct}>
+      <ResponsiveDiv>
+        <Img src={handleImage(imageLink)} />
+        <Figcaption>{color}</Figcaption>
+      </ResponsiveDiv>
+      <Flex>
+        <Price>R${unitaryValue}</Price>
+        <Button>Comprar</Button>
+      </Flex>
+    </Product>
+  )
+}
 
 const Main = () => {
   const [pagination, setPaginaton] = useState({
