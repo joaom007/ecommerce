@@ -80,7 +80,7 @@ export const GridContainer = styled.div`
   .title {
     grid-area: user;
   }
-  .name {
+  .nameCustomer {
     grid-area: grid-one;
   }
 

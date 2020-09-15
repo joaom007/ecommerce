@@ -1,4 +1,5 @@
 import React from 'react'
+import querystring from 'querystring'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import Button from '../Button'
@@ -11,17 +12,74 @@ import {
   DivBackDrop,
   CloseButton,
 } from './styles'
+import api from '../../services/api'
+
+const generate_token = (length) => {
+  //edit the token allowed characters
+  let a = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split(
+    ''
+  )
+  let b = []
+  for (let i = 0; i < length; i++) {
+    let j = (Math.random() * (a.length - 1)).toFixed(0)
+    b[i] = a[j]
+  }
+  return b.join('')
+}
+
+let token = generate_token(30)
 
 const FormCustomer = ({ isOpen, toggle }) => {
+  const handleOnSubmit = async (values, actions) => {
+    const {
+      email,
+      password,
+      token,
+      nameCustomer,
+      CPF,
+      RG,
+      dateBirth,
+      street,
+      number,
+      district,
+      city,
+      state,
+      zipCode,
+    } = values
+    const formData = new FormData()
+    alert(JSON.stringify(values))
+    // const resposta = await api.post(
+    //   '/pessoaFisica',
+    //   JSON.stringify(values, null, 2)
+    // )
+    //'application/x-www-form-urlencoded'
+    //text/plain
+    //multipart/form-data
+    const config = {
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      },
+    }
+
+    const resposta = await api.post(
+      '/pessoaFisica',
+      querystring.stringify(values),
+      config
+    )
+    console.log(resposta)
+  }
+
   return (
     <Formik
       initialValues={{
-        name: '',
+        nameCustomer: '',
         email: '',
-        cpf: '',
-        rg: '',
+        token,
+        userType: 1,
+        CPF: '',
+        RG: '',
         phone: '',
-        birthday: '',
+        dateBirth: '',
         password: '',
         district: '',
         number: '',
@@ -31,37 +89,44 @@ const FormCustomer = ({ isOpen, toggle }) => {
         zipCode: '',
       }}
       validationSchema={Yup.object(validate)}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}
+      onSubmit={handleOnSubmit}
     >
       <Form>
         <DivBackDrop open={isOpen}></DivBackDrop>
         <GridContainer open={isOpen}>
           <CloseButton onClick={toggle}>x</CloseButton>
           <Title className="title">Pessoa Física</Title>
-          <FlexContainer className="name">
-            <label htmlFor="name">Nome:</label>
-            <Field name="name" type="text" />
-            <ErrorMessage name="name" />
+          <FlexContainer className="nameCustomer">
+            <label htmlFor="nameCustomer">Nome:</label>
+            <Field name="nameCustomer" type="text" />
+            <ErrorMessage name="nameCustomer" />
           </FlexContainer>
           <FlexContainer className="email">
             <label htmlFor="email">Email:</label>
             <Field name="email" type="email" />
             <ErrorMessage name="name" />
           </FlexContainer>
+          <FlexContainer className="token">
+            <label htmlFor="token">Token:</label>
+            <Field name="token" type="token" disabled />
+            <ErrorMessage name="token" />
+          </FlexContainer>
+          <FlexContainer>
+            <label htmlFor="userType">Tipo de usuário</label>
+            <Field as="select" name="userType" value="1" disabled>
+              <option value="1">Comum</option>
+              <option value="2">Admin</option>
+            </Field>
+          </FlexContainer>
           <FlexContainer className="cpf">
-            <label htmlFor="cpf">CPF:</label>
-            <Field name="cpf" type="text" />
-            <ErrorMessage name="cpf" />
+            <label htmlFor="CPF">CPF:</label>
+            <Field name="CPF" type="text" />
+            <ErrorMessage name="CPF" />
           </FlexContainer>
           <FlexContainer className="rg">
-            <label htmlFor="rg">RG:</label>
-            <Field name="rg" type="text" />
-            <ErrorMessage name="rg" />
+            <label htmlFor="RG">RG:</label>
+            <Field name="RG" type="text" />
+            <ErrorMessage name="RG" />
           </FlexContainer>
           <FlexContainer className="phone">
             <label htmlFor="phone">Telefone:</label>
@@ -69,9 +134,9 @@ const FormCustomer = ({ isOpen, toggle }) => {
             <ErrorMessage name="phone" />
           </FlexContainer>
           <FlexContainer className="bithday">
-            <label htmlFor="birthday">Data de Nascimento:</label>
-            <Field name="birthday" type="date" />
-            <ErrorMessage name="birthday" />
+            <label htmlFor="dateBirth">Data de Nascimento:</label>
+            <Field name="dateBirth" type="string" />
+            <ErrorMessage name="dateBirth" />
           </FlexContainer>
           <FlexContainer className="password">
             <label htmlFor="password">Senha:</label>
