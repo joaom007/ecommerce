@@ -7,6 +7,7 @@ export const Container = styled.main`
   grid-gap: 2em;
   padding: 2em 2em;
   margin: 0 5vw;
+  min-height: 90vw;
 
   @media (max-width: 1150px) {
     grid-template-columns: repeat(2, 1fr);
