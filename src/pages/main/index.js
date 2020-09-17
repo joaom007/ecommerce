@@ -10,15 +10,19 @@ import {
   Price,
   ResponsiveDiv,
   Link,
+  Details,
+  DivDetails,
 } from './styles'
 import { handleImage } from './handleImage'
 
 const handleProducts = ({
   idProduct,
   color,
-  description,
   unitaryValue,
   imageLink,
+  category,
+  finishingProcess,
+  description,
 }) => {
   return (
     <Product key={idProduct}>
@@ -30,6 +34,11 @@ const handleProducts = ({
         <Price>R${unitaryValue}</Price>
         <Link href={`/product/${idProduct}`}>Comprar</Link>
       </Flex>
+      <DivDetails>
+        <Details>C x L x A: {description}</Details>
+        <Details>Categoria: {category}</Details>
+        <Details>Acabamento: {finishingProcess}</Details>
+      </DivDetails>
     </Product>
   )
 }

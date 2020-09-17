@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.main`
   background: #e3f5f7;
@@ -21,7 +21,7 @@ export const Product = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 0.5em;
+  padding: 0.5em 0.5em;
   border: 3px solid gray;
   border-radius: 0 2em 2em;
 `
@@ -38,6 +38,16 @@ export const ResponsiveDiv = styled.div`
   @media (max-width: 360px) {
     max-width: 220px;
   }
+`
+
+export const DivDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5em 0;
+  background: #7db6ae;
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
 `
 
 export const Figcaption = styled.figcaption`
@@ -59,6 +69,12 @@ export const Flex = styled.div`
     border: 1px solid gray;
     padding: 0.5em 0;
   }
+
+  ${({ start }) =>
+    start &&
+    css`
+      justify-content: start;
+    `}
 `
 
 export const Link = styled.a`
@@ -93,7 +109,12 @@ export const Link = styled.a`
       color: gray;
       border: 1px solid white;
     }
-
+  }
 `
 
 export const Price = styled.h3``
+
+export const Details = styled.h4`
+  color: white;
+  align-self: center;
+`
