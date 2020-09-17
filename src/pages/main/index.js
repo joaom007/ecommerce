@@ -32,7 +32,9 @@ const handleProducts = ({
       </ResponsiveDiv>
       <Flex>
         <Price>R${unitaryValue}</Price>
-        <Link href={`/product/${idProduct}`}>Comprar</Link>
+        <Link href={`/product/${idProduct}`}>
+          <Button>Comprar</Button>
+        </Link>
       </Flex>
       <DivDetails>
         <Details>C x L x A: {description}</Details>
