@@ -9,6 +9,7 @@ import {
   Flex,
   Price,
   ResponsiveDiv,
+  Link,
 } from './styles'
 import { handleImage } from './handleImage'
 
@@ -27,7 +28,7 @@ const handleProducts = ({
       </ResponsiveDiv>
       <Flex>
         <Price>R${unitaryValue}</Price>
-        <Button>Comprar</Button>
+        <Link href={`/product/${idProduct}`}>Comprar</Link>
       </Flex>
     </Product>
   )
