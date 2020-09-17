@@ -21,3 +21,7 @@ export const Nav = styled.nav`
     }
   }
 `
+export const Link = styled.a`
+  text-decoration: none;
+  align-self: center;
+`

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input, Button, DropDown, Logo } from 'components'
-import { Nav } from './styles'
+import { Nav, Link } from './styles'
 
 const Header = () => (
   <header>
@@ -14,7 +14,9 @@ const Header = () => (
       </div>
       <div style={{ display: 'flex' }}>
         <Button cart>C</Button>
-        <Button primary>Login</Button>
+        <Link href="/login">
+          <Button primary>Login</Button>
+        </Link>
         <DropDown></DropDown>
       </div>
     </Nav>
