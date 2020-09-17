@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react'
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import { About, Main, Register } from "./pages/index";
+import { About, Main, Product } from './pages/index'
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Main} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/register" component={Register} />
+      <Route exact path="/product/:id" component={Product} />
     </Switch>
   </BrowserRouter>
-);
+)
 
-export default Routes;
+export default Routes
