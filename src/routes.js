@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import { About, Main, Product } from './pages/index'
+import { About, Main, Product, Login } from './pages/index'
 
 const Routes = () => (
   <BrowserRouter>
@@ -10,6 +10,7 @@ const Routes = () => (
       <Route exact path="/" component={Main} />
       <Route exact path="/about" component={About} />
       <Route exact path="/product/:id" component={Product} />
+      <Route exact path="/login" component={Login}></Route>
     </Switch>
   </BrowserRouter>
 )
