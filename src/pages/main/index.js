@@ -63,10 +63,12 @@ const Main = () => {
 
   function nextPage() {
     setPaginaton({ ...pagination, start: pagination.limit + pagination.start })
+    window.scrollTo(0, 0)
   }
 
   function prevPage() {
     setPaginaton({ ...pagination, start: pagination.limit - pagination.start })
+    window.scrollTo(0, 0)
   }
 
   function handlePagination() {
