@@ -20,6 +20,8 @@ import { handleImage } from '../main/handleImage'
 const Product = (props) => {
   const [product, setProduct] = useState({})
   const [paymentDescription, setPaymentDescription] = useState([])
+  const [total, setTotal] = useState()
+
   const loadProduct = async (props) => {
     const { id } = props.match.params
     const { data } = await api.get(`/product?idProduct=${id}`)
@@ -39,6 +41,14 @@ const Product = (props) => {
         {paymentForm}
       </option>
     )
+  }
+
+  const handleChange = (e) => {
+    const { unitaryValue } = product
+    const {
+      target: { value },
+    } = e
+    setTotal((unitaryValue * value).toFixed(2))
   }
 
   useEffect(() => {
@@ -77,7 +87,13 @@ const Product = (props) => {
                 <DivRow>
                   <StyledLabel htmlFor="qtdd">
                     Quantidade
-                    <Input type="number" name="qtdd" min="1" max="10" />
+                    <Input
+                      type="number"
+                      name="qtdd"
+                      min="1"
+                      max="10"
+                      onChange={(e) => handleChange(e)}
+                    />
                   </StyledLabel>
                 </DivRow>
                 <DivRow>
@@ -94,7 +110,7 @@ const Product = (props) => {
                 <DivRow>
                   <TitlePrice>
                     Total R$:
-                    {unitaryValue}
+                    {total}
                   </TitlePrice>
                 </DivRow>
               </div>
