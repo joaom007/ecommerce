@@ -19,17 +19,33 @@ import { handleImage } from '../main/handleImage'
 
 const Product = (props) => {
   const [product, setProduct] = useState({})
+  const [paymentDescription, setPaymentDescription] = useState([])
   const loadProduct = async (props) => {
     const { id } = props.match.params
     const { data } = await api.get(`/product?idProduct=${id}`)
     setProduct(data[0])
   }
 
+  //paymentForm
+  const loadPaymentForm = async () => {
+    const { data } = await api.get('/paymentForm')
+    setPaymentDescription(data)
+  }
+
+  //list the forms of payment
+  const handlePayment = ({ paymentForm, idPaymentForm }) => {
+    return (
+      <option key={idPaymentForm} value={paymentForm}>
+        {paymentForm}
+      </option>
+    )
+  }
+
   useEffect(() => {
     loadProduct(props)
+    loadPaymentForm()
   }, [product, props])
 
-  //   console.log(product?.category)
   const {
     category,
     stock,
@@ -59,17 +75,15 @@ const Product = (props) => {
                   </TitlePrice>
                 </DivRow>
                 <DivRow>
-                  <StyledLabel for="qtdd">
+                  <StyledLabel htmlFor="qtdd">
                     Quantidade
                     <Input type="number" name="qtdd" min="1" max="10" />
                   </StyledLabel>
                 </DivRow>
                 <DivRow>
                   <select>
-                    <option value="-">Forma de Pagamento</option>
-                    <option value="boleto">Boleto</option>
-                    <option value="cartão de crédito">Cartão de Crédito</option>
-                    <option value="cartão de débito">Cartão de Débito</option>
+                    <option value="-">Formas de Pagamento</option>
+                    {paymentDescription.map(handlePayment)}
                   </select>
                 </DivRow>
               </div>
