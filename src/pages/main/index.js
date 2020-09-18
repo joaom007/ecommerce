@@ -1,49 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Header, Footer, Button } from '../../components/index'
 import api from '../../services/api'
-import {
-  Container,
-  Product,
-  Img,
-  Figcaption,
-  Flex,
-  Price,
-  ResponsiveDiv,
-  Link,
-  Details,
-  DivDetails,
-} from './styles'
-import { handleImage } from './handleImage'
-
-const handleProducts = ({
-  idProduct,
-  color,
-  unitaryValue,
-  imageLink,
-  category,
-  finishingProcess,
-  description,
-}) => {
-  return (
-    <Product key={idProduct}>
-      <ResponsiveDiv>
-        <Img src={handleImage(imageLink)} />
-        <Figcaption>{color}</Figcaption>
-      </ResponsiveDiv>
-      <Flex>
-        <Price>R${unitaryValue}</Price>
-        <Link href={`/product/${idProduct}`}>
-          <Button>Comprar</Button>
-        </Link>
-      </Flex>
-      <DivDetails>
-        <Details>C x L x A: {description}</Details>
-        <Details>Categoria: {category}</Details>
-        <Details>Acabamento: {finishingProcess}</Details>
-      </DivDetails>
-    </Product>
-  )
-}
+import { Container, Flex } from './styles'
+import { handleProducts } from './handleProducts'
 
 const Main = () => {
   const [pagination, setPaginaton] = useState({
