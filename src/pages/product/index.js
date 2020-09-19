@@ -15,6 +15,7 @@ import {
   StyledLabel,
   FlexRow,
   DivButtons,
+  Link,
 } from './styles'
 import { handleImage } from '../main/handleImage'
 
@@ -149,7 +150,9 @@ const Product = (props) => {
               </div>
               <div>
                 <DivButtons>
-                  <Button>Comprar</Button>
+                  <Link href="/order">
+                    <Button onClick={addToCart}>Comprar</Button>
+                  </Link>
                   <Button add onClick={addToCart}>
                     Adicionar ao carrinho
                   </Button>

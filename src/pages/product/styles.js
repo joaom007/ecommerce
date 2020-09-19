@@ -88,3 +88,7 @@ export const StyledLabel = styled.label`
   margin-right: 0.3em;
   font-weight: bold;
 `
+
+export const Link = styled.a`
+  text-decoration: none;
+`
