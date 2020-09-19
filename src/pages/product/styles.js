@@ -60,6 +60,10 @@ export const DivRow = styled.div`
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 `
+export const DivButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 export const FlexRow = styled.div`
   display: flex;

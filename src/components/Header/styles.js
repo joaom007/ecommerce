@@ -25,3 +25,11 @@ export const Link = styled.a`
   text-decoration: none;
   align-self: center;
 `
+
+export const GreenNumber = styled.h3`
+  color: green;
+  display: inline-block;
+  margin-left: 0.3em;
+  background: white;
+  padding: 0 0.3em;
+`

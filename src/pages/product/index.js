@@ -14,6 +14,7 @@ import {
   TitlePrice,
   StyledLabel,
   FlexRow,
+  DivButtons,
 } from './styles'
 import { handleImage } from '../main/handleImage'
 
@@ -21,6 +22,7 @@ const Product = (props) => {
   const [product, setProduct] = useState({})
   const [paymentDescription, setPaymentDescription] = useState([])
   const [total, setTotal] = useState()
+  const [cart, setCart] = useState([])
 
   const loadProduct = async (props) => {
     const { id } = props.match.params
@@ -43,17 +45,59 @@ const Product = (props) => {
     )
   }
 
+  //Addition of products alter the total
   const handleChange = (e) => {
     const { unitaryValue } = product
     const {
       target: { value },
     } = e
-    setTotal((unitaryValue * value).toFixed(2))
+    setTotal(parseFloat((unitaryValue * value).toFixed(2)))
+  }
+
+  // let localCart = localStorage.getItem('cart')
+  let localCart = localStorage.getItem('cart')
+
+  //Add item to the local storage
+  const addToCart = () => {
+    //create a copy of our cart state, avoid overwritting existing state
+    if (total === undefined || total <= 0) {
+      alert('Digite uma quantidade!')
+      return
+    }
+    let cartCopy = [...cart]
+
+    let quantity = total / product.unitaryValue
+    let { idProduct } = product
+
+    let existingItem = cartCopy.find(
+      (cartItem) => cartItem.idProduct === idProduct
+    )
+
+    const composition = { ...product, total, qtdd: quantity }
+
+    if (existingItem) {
+      existingItem.qtdd += composition.qtdd
+      existingItem.total += composition.total
+    } else {
+      //if item doesn't exist, simply add it
+      cartCopy.push(composition)
+    }
+
+    setCart(cartCopy)
+
+    let stringCart = JSON.stringify(cartCopy)
+    localStorage.setItem('cart', stringCart)
+    console.log(JSON.parse(localStorage.getItem('cart')))
   }
 
   useEffect(() => {
     loadProduct(props)
     loadPaymentForm()
+    if (localStorage.getItem('cart'))
+      setCart(JSON.parse(localStorage.getItem('cart')))
+    // localCart = JSON.parse(localCart)
+    //load persisted cart into state if it exists
+    if (localCart) localStorage.setItem('cart', localCart)
   }, [product, props])
 
   const {
@@ -104,9 +148,12 @@ const Product = (props) => {
                 </DivRow>
               </div>
               <div>
-                <DivRow>
+                <DivButtons>
                   <Button>Comprar</Button>
-                </DivRow>
+                  <Button add onClick={addToCart}>
+                    Adicionar ao carrinho
+                  </Button>
+                </DivButtons>
                 <DivRow>
                   <TitlePrice>
                     Total R$:

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 const Button = styled.button`
-  width: 6em;
   margin: auto 0.5em;
   border: 1px solid gray;
   border-radius: 1em;
@@ -56,11 +55,11 @@ const Button = styled.button`
         );
       }
     `}
-  ${({ cart }) =>
-    cart &&
+  ${({ add }) =>
+    add &&
     css`
-      border-radius: 50%;
       width: auto;
+      background: green;
     `};
   :disabled {
     background: gray;
