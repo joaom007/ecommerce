@@ -26,13 +26,15 @@ const Header = () => {
           <Button>Pesquisar</Button>
         </div>
         <div style={{ display: 'flex' }}>
-          <Button>
-            Carrinho
-            <span role="img" aria-label="sheep">
-              &#128722;
-            </span>
-            <GreenNumber>{quantity}</GreenNumber>
-          </Button>
+          <Link href="/order">
+            <Button>
+              Carrinho
+              <span role="img" aria-label="sheep">
+                &#128722;
+              </span>
+              <GreenNumber>{quantity}</GreenNumber>
+            </Button>
+          </Link>
           <Link href="/login">
             <Button primary>Login</Button>
           </Link>
