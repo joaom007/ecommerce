@@ -23,13 +23,39 @@ const Product = (props) => {
   const [product, setProduct] = useState({})
   const [paymentDescription, setPaymentDescription] = useState([])
   const [total, setTotal] = useState()
+  const [quantity, setQuantity] = useState(0)
   const [cart, setCart] = useState([])
 
   const loadProduct = async (props) => {
     const { id } = props.match.params
     const { data } = await api.get(`/product?idProduct=${id}`)
+    // let localCart = JSON.parse(localStorage.getItem('cart')
+    // let cartValue = cart.find((item) => item.idProduct === id)
+    // console.log(cartValue)
     setProduct(data[0])
   }
+
+  // const loadQuantity = () => {
+  //   const { id } = props.match.params
+  //   //create a copy of our cart state, avoid overwritting existing state
+  //   let cartCopy = [...cart]
+
+  //   //look for item in cart array
+  //   let existentItem = cartCopy.find((cartItem) => cartItem.idProduct == id)
+
+  //   if (!existentItem) return
+
+  //   if (existentItem.qtdd <= 0) {
+  //     //remove item  by filtering it from cart array
+  //     cartCopy = cartCopy.filter((item) => item.idProduct != { id })
+  //   }
+  //   console.log('existentItem')
+  //   // setQuantity(existentItem.qtdd)
+  //   setCart(cartCopy)
+
+  //   let cartString = JSON.stringify(cartCopy)
+  //   localStorage.setItem('cart', cartString)
+  // }
 
   //paymentForm
   const loadPaymentForm = async () => {
@@ -46,11 +72,11 @@ const Product = (props) => {
     )
   }
 
-  //Addition of products alter the total
+  //The addition or subtraction of one product alter the total
   const handleChange = (e) => {
-    const { unitaryValue } = product
+    const { unitaryValue, idProduct } = product
     const {
-      target: { value },
+      target: { value, defaultValue },
     } = e
     setTotal(parseFloat((unitaryValue * value).toFixed(2)))
   }
@@ -94,6 +120,7 @@ const Product = (props) => {
   useEffect(() => {
     loadProduct(props)
     loadPaymentForm()
+    // loadQuantity()
     if (localStorage.getItem('cart'))
       setCart(JSON.parse(localStorage.getItem('cart')))
     // localCart = JSON.parse(localCart)
@@ -111,6 +138,7 @@ const Product = (props) => {
     imageLink,
     unitaryValue,
   } = product
+
   return (
     <>
       <Nav>
@@ -137,6 +165,7 @@ const Product = (props) => {
                       name="qtdd"
                       min="1"
                       max="10"
+                      defaultValue={quantity}
                       onChange={(e) => handleChange(e)}
                     />
                   </StyledLabel>

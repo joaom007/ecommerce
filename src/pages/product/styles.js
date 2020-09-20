@@ -81,7 +81,7 @@ export const FlexRow = styled.div`
 `
 
 export const Input = styled.input`
-  width: 20%;
+  width: 30%;
 `
 export const StyledLabel = styled.label`
   color: gray;

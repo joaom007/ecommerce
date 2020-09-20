@@ -87,3 +87,12 @@ export const RemoveButton = styled.button`
 export const Link = styled.a`
   text-decoration: none;
 `
+
+export const Input = styled.input`
+  width: 25%;
+`
+export const StyledLabel = styled.label`
+  color: gray;
+  margin-right: 0.3em;
+  font-weight: bold;
+`

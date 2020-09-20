@@ -14,14 +14,15 @@ import {
   Strongest,
   RemoveButton,
   Link,
+  StyledLabel,
+  Input,
 } from './styles'
 import { handleImage } from '../main/handleImage'
 
 const Order = () => {
   const [cart, setCart] = useState([])
 
-  let localCart = localStorage.getItem('cart')
-  console.log(localCart)
+  // let localCart = localStorage.getItem('cart')
 
   const loadCart = () => {
     setCart(JSON.parse(localStorage.getItem('cart')))
@@ -50,7 +51,7 @@ const Order = () => {
       console.log(idProduct)
       let cartCopy = [...cart]
 
-      cartCopy = cartCopy.filter((item) => item.idProduct != idProduct)
+      cartCopy = cartCopy.filter((item) => item.idProduct !== idProduct)
 
       setCart(cartCopy)
 
@@ -58,12 +59,50 @@ const Order = () => {
       localStorage.setItem('cart', cartString)
     }
 
+    const handleChange = (e) => {
+      const {
+        target: { value },
+      } = e
+
+      let cartCopy = [...cart]
+
+      let existentItem = cartCopy.find((item) => item.idProduct === idProduct)
+
+      let change = parseFloat(unitaryValue * value).toFixed(2)
+
+      existentItem.total = change
+      existentItem.qtdd = value
+
+      if (existentItem.qtdd <= 0) {
+        //remove item  by filtering it from cart array
+        cartCopy = cartCopy.filter((item) => item.idProduct !== idProduct)
+      }
+
+      setCart(cartCopy)
+
+      let cartString = JSON.stringify(cartCopy)
+      localStorage.setItem('cart', cartString)
+
+      // console.log(change)
+    }
+
     return (
-      <FlexRow>
+      <FlexRow key={`idProduct-${idProduct}`}>
         <DivFlex className="flexOne">
           <Img src={handleImage(imageLink)}></Img>
           <FigCaption>{color}</FigCaption>
           <DivRow>
+            <DivRow>
+              <StyledLabel htmlFor="qtdd">
+                Quantidade
+                <Input
+                  type="number"
+                  name="qtdd"
+                  defaultValue={qtdd}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+            </DivRow>
             <TitlePrice>
               Total R$:
               {total}
